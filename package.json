@@ -20,10 +20,6 @@
     "index.js"
   ],
   "keywords": [
-    "tar",
-    "archive",
-    "glob",
-    "promise"
   ],
   "dependencies": {},
   "devDependencies": {
