@@ -1,3 +1,7 @@
 'use strict';
 
-// some code here
+const nmb = function () {
+
+};
+
+module.exports = nmb;

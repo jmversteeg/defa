@@ -1,8 +1,8 @@
 'use strict';
 
-var chai           = require("chai");
-var sinonChai      = require("sinon-chai");
-var chaiAsPromised = require("chai-as-promised");
+var chai           = require('chai');
+var sinonChai      = require('sinon-chai');
+var chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised);
 chai.use(sinonChai);
@@ -10,5 +10,7 @@ chai.use(sinonChai);
 chai.should();
 
 const nmb = require('./');
+
+nmb();
 
 // some tests here

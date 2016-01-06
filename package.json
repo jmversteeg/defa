@@ -13,7 +13,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "pretest": "eslint lib && eslint test",
+    "pretest": "eslint index.js && eslint test.js",
     "test": "mocha test.js"
   },
   "files": [
