@@ -1,0 +1,39 @@
+{
+  "name": "nmb",
+  "version": "0.0.0",
+  "description": "modern node module boilerplate",
+  "license": "MIT",
+  "repository": "jmversteeg/nmb",
+  "author": {
+    "name": "JM Versteeg",
+    "email": "janmerijnversteeg@gmail.com",
+    "url": "github.com/jmversteeg"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "pretest": "eslint lib && eslint test",
+    "test": "mocha test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "tar",
+    "archive",
+    "glob",
+    "promise"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "coveralls": "^2.11.6",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  }
+}
