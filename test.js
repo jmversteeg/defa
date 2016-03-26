@@ -66,4 +66,18 @@ describe('defa', () => {
 
         spy.should.not.have.been.called;
     });
+    
+    it('should handle non-object arguments gracefully', () => {
+
+        defa(false, {
+            foo: 'bar',
+            baz: undefined
+        }, null, {
+            foo: 'baz',
+            baz: 'beepboop'
+        }).should.deep.equal({
+            foo: 'bar',
+            baz: 'beepboop'
+        });
+    });
 });
