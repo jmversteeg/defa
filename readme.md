@@ -17,6 +17,45 @@ current iteration. A source object is expected to be returned.
 A function can also be given for any of the property values on the source object and it will only be invoked if
 the destination property resolves to `undefined`.
 
+## Examples
+
+### Property by callback
+
+Suppose you have a class, `Car`, whose constructor takes the optional argument `options`.
+
+```js
+
+class Car {
+
+    constructor(options) {
+        _.defaults(options, {
+            engine: new Engine()
+        });
+        this.engine = options.engine;
+    }
+}
+```
+
+Hold up. See what's happening here? A new instance of `Engine` is created every time the constructor of `Car` is invoked, regardless of `options.engine` is provided.
+This is not really a problem, until instantiating `Engine` becomes a computationally expensive task.
+
+`defa` deals with this issue.
+
+```js
+
+const defaults = require('defa');
+
+class Car {
+
+    constructor(options) {
+        defaults(options, {
+            engine: () => new Engine()
+        });
+        this.engine = options.engine;
+    }
+}
+```
+
 ## Install
 
 ```
@@ -27,9 +66,9 @@ $ npm install --save defa
 ## Usage
 
 ```js
-const defa = require('defa');
+const defaults = require('defa');
 
-defa({
+defaults({
    foo: 'bar'
 }, obj => {
    return {
