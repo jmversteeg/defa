@@ -69,7 +69,7 @@ const _ = require('lodash');
 class Car {
 
     constructor(options) {
-        defaults(options, {
+        _.defaults(options, {
             engine: new Engine(options.fuelType ? options.fuelType : 'gasoline')
         });
         this.engine = options.engine;
