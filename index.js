@@ -3,26 +3,29 @@
 const _ = require('lodash');
 
 /**
- * Iteratively assign properties of source objects to a
+ * Assigns own and inherited enumerable properties of source objects to the
  * destination object for all destination properties that resolve to `undefined`.
  * Source objects are applied from left to right. Once a property is set,
  * additional values of the same property are ignored.
- * 
+ *
  * A function can be given instead of a source object, it will be invoked with the destination object at the
  * current iteration. A source object is expected to be returned.
- * 
- * A function can also be given for any of the property values on the source object and it will only be invoked if 
+ *
+ * A function can also be given for any of the property values on the source object and it will only be invoked if
  * the destination property resolves to `undefined`.
  *
+ * **Note:** This method mutates `object`.
+ *
+ * @param {Object} object The destination object.
  * @param {...Object|Function} [sources] Source objects.
  * @returns {Object} Returns `object`.
  */
-const defa = function () {
+const defa = function (object) {
 
-    const obj = {};
+    const obj = _.isObject(object) ? object : {};
 
     // Iterate each "layer" of defaults
-    _.forEach(arguments, defaults => {
+    _.forEach(Array.prototype.splice.call(arguments, 1, arguments.length - 1), defaults => {
 
         // If the current "layer" is a function, invoke it with the current state of the object
         if (_.isFunction(defaults)) defaults = defaults(obj);
