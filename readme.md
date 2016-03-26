@@ -7,7 +7,7 @@
 [![Code Coverage][coveralls-image]][coveralls-url]
 [![NPM Version][npm-image]][npm-url]
 
-Iteratively assign properties of source objects to a
+Assigns own and inherited enumerable properties of source objects to the
 destination object for all destination properties that resolve to `undefined`.
 Source objects are applied from left to right. Once a property is set,
 additional values of the same property are ignored.
