@@ -17,7 +17,13 @@ current iteration. A source object is expected to be returned.
 A function can also be given for any of the property values on the source object and it will only be invoked if
 the destination property resolves to `undefined`.
 
-## Examples
+## Install
+
+```
+$ npm install --save defa
+```
+
+## Usage
 
 ### Property by callback
 
@@ -114,30 +120,6 @@ class Car {
     }
 }
 ```
-
-## Install
-
-```
-$ npm install --save defa
-```
-
-
-## Usage
-
-```js
-const defaults = require('defa');
-
-defaults({
-   foo: 'bar'
-}, obj => {
-   return {
-      bar: () => obj.foo + 'baz'
-   };
-});
-
-// => {foo: 'bar', bar: 'barbaz'}
-```
-
 
 ## License
 
