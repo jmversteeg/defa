@@ -58,6 +58,63 @@ class Car {
 }
 ```
 
+### Object by callback
+
+Suppose the constructor of `Engine` takes an argument, `fuelType`, and you want to modify the constructor of `Car` in a way that you can provide the `fuelType` to the `Car` constructor without have to deal with the `Engine` constructor, and add the same time, you want to maintain the flexibility of being able to override the engine altogether by providing `options.engine`.
+
+```js
+
+const _ = require('lodash');
+
+class Car {
+
+    constructor(options) {
+        defaults(options, {
+            engine: new Engine(options.fuelType ? options.fuelType : 'gasoline')
+        });
+        this.engine = options.engine;
+    }
+}
+```
+
+This becomes more complex and unreadable as the amount of option parameters increases. If only there were a way to define the default of `fuelType` separately.
+
+```js
+
+const defaults = require('defa');
+
+class Car {
+
+    constructor(options) {
+        defaults(options, {
+            fuelType: 'gasoline'
+        }, options => { return {
+            engine: new Engine(options.fuelType)
+        }});
+        this.engine = options.engine;
+    }
+}
+```
+
+Combining both techniques for optimal flexibility:
+
+```js
+
+const defaults = require('defa');
+
+class Car {
+
+    constructor(options) {
+        defaults(options, {
+            fuelType: 'gasoline'
+        }, options => { return {
+            engine: () => new Engine(options.fuelType)
+        }});
+        this.engine = options.engine;
+    }
+}
+```
+
 ## Install
 
 ```
