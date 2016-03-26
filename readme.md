@@ -25,6 +25,8 @@ Suppose you have a class, `Car`, whose constructor takes the optional argument `
 
 ```js
 
+const _ = require('lodash');
+
 class Car {
 
     constructor(options) {
@@ -36,7 +38,7 @@ class Car {
 }
 ```
 
-Hold up. See what's happening here? A new instance of `Engine` is created every time the constructor of `Car` is invoked, regardless of `options.engine` is provided.
+Hold up. See what's happening here? A new instance of `Engine` is created every time the constructor of `Car` is invoked, regardless of whether `options.engine` is provided.
 This is not really a problem, until instantiating `Engine` becomes a computationally expensive task.
 
 `defa` deals with this issue.
