@@ -66,7 +66,7 @@ describe('defa', () => {
 
         spy.should.not.have.been.called;
     });
-    
+
     it('should handle non-object arguments gracefully', () => {
 
         defa(false, {
@@ -79,5 +79,25 @@ describe('defa', () => {
             foo: 'bar',
             baz: 'beepboop'
         });
+    });
+
+    it('should mutate the original object', () => {
+
+        var original = {
+            foo: 'bar',
+            baz: undefined
+        };
+
+        var result = defa(original, {
+            foo: 'baz',
+            baz: 'beepboop'
+        });
+
+        result.should.deep.equal({
+            foo: 'bar',
+            baz: 'beepboop'
+        });
+
+        original.should.equal(result);
     });
 });
