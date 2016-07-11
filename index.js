@@ -38,7 +38,7 @@ const defa = function (object) {
             if (_.isUndefined(obj[key])) {
 
                 // If the given replacement value is a function, invoke the function
-                if (_.isFunction(val)) val = val();
+                if (_.isFunction(val)) val = val(obj);
                 obj[key] = val;
             }
         });

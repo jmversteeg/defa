@@ -102,7 +102,7 @@ class Car {
 }
 ```
 
-Combining both techniques for optimal flexibility:
+Or the alternative, neater notation:
 
 ```js
 
@@ -113,9 +113,9 @@ class Car {
     constructor(options) {
         defaults(options, {
             fuelType: 'gasoline'
-        }, options => { return {
-            engine: () => new Engine(options.fuelType)
-        }});
+        }, {
+            engine: options => new Engine(options.fuelType)
+        });
         this.engine = options.engine;
     }
 }

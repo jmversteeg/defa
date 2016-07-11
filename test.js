@@ -47,10 +47,10 @@ describe('defa', () => {
         defa({
             foo: 'bar'
         }, {
-            baz: () => 'baz'
+            baz: (options) => options.foo + 'baz'
         }).should.deep.equal({
             foo: 'bar',
-            baz: 'baz'
+            baz: 'barbaz'
         });
     });
 
