@@ -1,6 +1,6 @@
 {
   "name": "defa",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "like _.defaults but with support for callbacks",
   "license": "MIT",
   "repository": "jmversteeg/defa",
