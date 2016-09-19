@@ -85,6 +85,8 @@ class Car {
 
 This becomes more complex and unreadable as the amount of option parameters increases. If only there were a way to define the default of `fuelType` separately.
 
+Enter "object by callback":
+
 ```js
 
 const defaults = require('defa');
@@ -102,7 +104,7 @@ class Car {
 }
 ```
 
-Or the alternatively:
+Or alternatively, using "property by callback":
 
 ```js
 
