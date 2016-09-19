@@ -94,15 +94,15 @@ class Car {
     constructor(options) {
         defaults(options, {
             fuelType: 'gasoline'
-        }, options => { return {
+        }, options => ({
             engine: new Engine(options.fuelType)
-        }});
+        }));
         this.engine = options.engine;
     }
 }
 ```
 
-Or the alternative, neater notation:
+Or the alternatively:
 
 ```js
 
